@@ -6,11 +6,14 @@
 
 using System;
 using System.Buffers;
+using MessagePack.Internal;
 
+#pragma warning disable SA1402 // File may only contain a single type
 #pragma warning disable SA1649 // File name should match first type name
 
 namespace MessagePack.Formatters
 {
+    [Preserve]
     public sealed class ValueTupleFormatter<T1> : IMessagePackFormatter<ValueTuple<T1>>
     {
         public void Serialize(ref MessagePackWriter writer, ValueTuple<T1> value, MessagePackSerializerOptions options)
@@ -25,7 +28,7 @@ namespace MessagePack.Formatters
         {
             if (reader.IsNil)
             {
-                throw new MessagePackSerializationException("Data is Nil, ValueTuple can not be null.");
+                throw MessagePackSerializationException.ThrowUnexpectedNilWhileDeserializing<ValueTuple<T1>>();
             }
             else
             {
@@ -51,6 +54,7 @@ namespace MessagePack.Formatters
         }
     }
 
+    [Preserve]
     public sealed class ValueTupleFormatter<T1, T2> : IMessagePackFormatter<ValueTuple<T1, T2>>
     {
         public void Serialize(ref MessagePackWriter writer, ValueTuple<T1, T2> value, MessagePackSerializerOptions options)
@@ -66,7 +70,7 @@ namespace MessagePack.Formatters
         {
             if (reader.IsNil)
             {
-                throw new MessagePackSerializationException("Data is Nil, ValueTuple can not be null.");
+                throw MessagePackSerializationException.ThrowUnexpectedNilWhileDeserializing<ValueTuple<T1, T2>>();
             }
             else
             {
@@ -93,6 +97,7 @@ namespace MessagePack.Formatters
         }
     }
 
+    [Preserve]
     public sealed class ValueTupleFormatter<T1, T2, T3> : IMessagePackFormatter<ValueTuple<T1, T2, T3>>
     {
         public void Serialize(ref MessagePackWriter writer, ValueTuple<T1, T2, T3> value, MessagePackSerializerOptions options)
@@ -109,7 +114,7 @@ namespace MessagePack.Formatters
         {
             if (reader.IsNil)
             {
-                throw new MessagePackSerializationException("Data is Nil, ValueTuple can not be null.");
+                throw MessagePackSerializationException.ThrowUnexpectedNilWhileDeserializing<ValueTuple<T1, T2, T3>>();
             }
             else
             {
@@ -137,6 +142,7 @@ namespace MessagePack.Formatters
         }
     }
 
+    [Preserve]
     public sealed class ValueTupleFormatter<T1, T2, T3, T4> : IMessagePackFormatter<ValueTuple<T1, T2, T3, T4>>
     {
         public void Serialize(ref MessagePackWriter writer, ValueTuple<T1, T2, T3, T4> value, MessagePackSerializerOptions options)
@@ -154,7 +160,7 @@ namespace MessagePack.Formatters
         {
             if (reader.IsNil)
             {
-                throw new MessagePackSerializationException("Data is Nil, ValueTuple can not be null.");
+                throw MessagePackSerializationException.ThrowUnexpectedNilWhileDeserializing<ValueTuple<T1, T2, T3, T4>>();
             }
             else
             {
@@ -183,6 +189,7 @@ namespace MessagePack.Formatters
         }
     }
 
+    [Preserve]
     public sealed class ValueTupleFormatter<T1, T2, T3, T4, T5> : IMessagePackFormatter<ValueTuple<T1, T2, T3, T4, T5>>
     {
         public void Serialize(ref MessagePackWriter writer, ValueTuple<T1, T2, T3, T4, T5> value, MessagePackSerializerOptions options)
@@ -201,7 +208,7 @@ namespace MessagePack.Formatters
         {
             if (reader.IsNil)
             {
-                throw new MessagePackSerializationException("Data is Nil, ValueTuple can not be null.");
+                throw MessagePackSerializationException.ThrowUnexpectedNilWhileDeserializing<ValueTuple<T1, T2, T3, T4, T5>>();
             }
             else
             {
@@ -231,6 +238,7 @@ namespace MessagePack.Formatters
         }
     }
 
+    [Preserve]
     public sealed class ValueTupleFormatter<T1, T2, T3, T4, T5, T6> : IMessagePackFormatter<ValueTuple<T1, T2, T3, T4, T5, T6>>
     {
         public void Serialize(ref MessagePackWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6> value, MessagePackSerializerOptions options)
@@ -250,7 +258,7 @@ namespace MessagePack.Formatters
         {
             if (reader.IsNil)
             {
-                throw new MessagePackSerializationException("Data is Nil, ValueTuple can not be null.");
+                throw MessagePackSerializationException.ThrowUnexpectedNilWhileDeserializing<ValueTuple<T1, T2, T3, T4, T5, T6>>();
             }
             else
             {
@@ -281,6 +289,7 @@ namespace MessagePack.Formatters
         }
     }
 
+    [Preserve]
     public sealed class ValueTupleFormatter<T1, T2, T3, T4, T5, T6, T7> : IMessagePackFormatter<ValueTuple<T1, T2, T3, T4, T5, T6, T7>>
     {
         public void Serialize(ref MessagePackWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6, T7> value, MessagePackSerializerOptions options)
@@ -301,7 +310,7 @@ namespace MessagePack.Formatters
         {
             if (reader.IsNil)
             {
-                throw new MessagePackSerializationException("Data is Nil, ValueTuple can not be null.");
+                throw MessagePackSerializationException.ThrowUnexpectedNilWhileDeserializing<ValueTuple<T1, T2, T3, T4, T5, T6, T7>>();
             }
             else
             {
@@ -333,6 +342,7 @@ namespace MessagePack.Formatters
         }
     }
 
+    [Preserve]
     public sealed class ValueTupleFormatter<T1, T2, T3, T4, T5, T6, T7, TRest> : IMessagePackFormatter<ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest>>
         where TRest : struct
     {
@@ -355,7 +365,7 @@ namespace MessagePack.Formatters
         {
             if (reader.IsNil)
             {
-                throw new MessagePackSerializationException("Data is Nil, ValueTuple can not be null.");
+                throw MessagePackSerializationException.ThrowUnexpectedNilWhileDeserializing<ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest>>();
             }
             else
             {
